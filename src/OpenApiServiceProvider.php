@@ -39,7 +39,7 @@ class OpenApiServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'getcandy');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'openapi');
 
         // Register the main class to use with the facade
         $this->app->singleton('openapi-generator', function () {

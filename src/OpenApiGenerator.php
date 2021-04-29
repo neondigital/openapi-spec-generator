@@ -117,9 +117,9 @@ class OpenApiGenerator
             $openapi = new \cebe\openapi\spec\OpenApi([
                 'openapi' => '3.0.2',
                 'info' => [
-                    'title' => 'Test API',
-                    'description' => 'My awesome API',
-                    'version' => '1.0.0',
+                    'title' => config('openapi.info.title'),
+                    'description' => config('openapi.info.description'),
+                    'version' => config('openapi.info.version'),
                 ],
                 'paths' => [],
                 "components" => new Components([
@@ -427,28 +427,32 @@ class OpenApiGenerator
                         $route_methods[$route_uri] = [];
                     }
 
+                    $operationId = str_replace(".", "_", $route->getName());
+
                     if (in_array($method, ['POST', 'PATCH'])) {
                         //echo $method . " - " . $route_uri . "\n";
                         $requestBody = ['$ref' => "#/components/requestBodies/" . $schema_name_plural . "_" . strtolower($method)];
                         
                         $route_methods[$route_uri][strtolower($method)] = new Operation([
-                                "summary" => $summary,
-                                "operationId" => $route->getName(),
+                                "summary" => config('openapi.operations.' . $operationId . ".summary") ?? $summary,
+                                "description" => config('openapi.operations.' . $operationId . ".description") ?? "",
+                                "operationId" => $operationId,
                                 "parameters" => $parameters,
                                 "responses" => $responses,
                                 "requestBody" => $requestBody,
-                                "tags" => ['Channels']
+                                "tags" => [$schema_name_plural]
                             ]);
 
                     } else {
 
                         //echo $method . " - " . $route_uri . "\n";
                         $route_methods[$route_uri][strtolower($method)] = new Operation([
-                                "summary" => $summary,
-                                "operationId" => $route->getName(),
+                                "summary" => config('openapi.operations.' . $operationId . ".summary") ?? $summary,
+                                "description" => config('openapi.operations.' . $operationId . ".description") ?? "",
+                                "operationId" => $operationId,
                                 "parameters" => $parameters,
                                 "responses" => $responses,
-                                "tags" => ['Channels']
+                                "tags" => array_merge([$schema_name_plural], config('openapi.operations.' . $operationId . ".tags", []))
                         ]);
                     }
                     unset($parameters, $responses, $field_schemas);
@@ -574,8 +578,8 @@ class OpenApiGenerator
         if ($openapi->validate()) {
             $yaml = \cebe\openapi\Writer::writeToYaml($openapi);
         } else {
-            // $openapi->getErrors()
-            throw \Exception('Open API not valid.');
+            dump($openapi->getErrors());
+            throw new \Exception('Open API not valid.');
         }
 
         // Save to storage

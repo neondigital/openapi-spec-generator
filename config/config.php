@@ -6,13 +6,13 @@
 return [
 
     'info' => [
-        'title' => 'Test API',
-        'description' => 'My awesome API',
+        'title' => 'My JSON:API',
+        'description' => 'JSON:API built using Laravel',
         'version' => '1.0.0',
     ],
 
     'operations' => [
-        'v1.posts.store' => [
+        'v1_posts_index' => [
             'summary' => 'Create a new Post',
             'description' => 'Some longer text to explain what is going on',
             'tags' => ['Posts']
