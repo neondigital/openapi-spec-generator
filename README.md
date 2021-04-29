@@ -8,11 +8,11 @@ Designed to work with [Laravel JSON:API](https://laraveljsonapi.io/)
 
 - [x] Command to generate to storage folder
 - [x] Get basic test suite running with GitHub Actions
-- [ ] Config to set which server(s) to generate
 - [x] Add extra operation descriptons via config
 - [x] Add in tags & x-tagGroups (via config)
 - [ ] Consider `->readonly()` etc in routes
 - [ ] Remove links in payload data when saving resources
+- [ ] Fix includes and relations
 - [ ] Tidy up the code!!
 - [ ] Add tests
 
