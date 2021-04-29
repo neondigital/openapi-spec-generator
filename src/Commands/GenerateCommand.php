@@ -43,8 +43,8 @@ class GenerateCommand extends Command
         OpenApiGenerator::generate();
 
         $this->line('Complete! /storage/app/openapi.yaml');
-        $this->line('Run the following to see your API docs');
         $this->newLine();
+        $this->line('Run the following to see your API docs');
         $this->info('speccy serve storage/app/openapi.yaml');
         $this->newLine();
 

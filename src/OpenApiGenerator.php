@@ -190,7 +190,7 @@ class OpenApiGenerator
                 return \Str::contains($route->getName(), $key);
             });
 
-            print_r($key . "\n");
+            //print_r($key . "\n");
 
             $route_methods = [];
 
@@ -428,7 +428,7 @@ class OpenApiGenerator
                     }
 
                     if (in_array($method, ['POST', 'PATCH'])) {
-                        echo $method . " - " . $route_uri . "\n";
+                        //echo $method . " - " . $route_uri . "\n";
                         $requestBody = ['$ref' => "#/components/requestBodies/" . $schema_name_plural . "_" . strtolower($method)];
                         
                         $route_methods[$route_uri][strtolower($method)] = new Operation([
@@ -442,7 +442,7 @@ class OpenApiGenerator
 
                     } else {
 
-                        echo $method . " - " . $route_uri . "\n";
+                        //echo $method . " - " . $route_uri . "\n";
                         $route_methods[$route_uri][strtolower($method)] = new Operation([
                                 "summary" => $summary,
                                 "operationId" => $route->getName(),
@@ -457,7 +457,7 @@ class OpenApiGenerator
             }
             // END FOREACH OVER ROUTES
 
-            print_r(array_keys($route_methods["api/v2/channels"]));
+            //print_r(array_keys($route_methods["api/v2/channels"]));
 
 
 
