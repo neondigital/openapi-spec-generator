@@ -23,8 +23,9 @@ return [
         [
             'name' => 'CMS Management',
             'tags' => [
-                'Posts',
+                'Categories',
                 'Comments',
+                'Posts',
             ]
         ],
     ]

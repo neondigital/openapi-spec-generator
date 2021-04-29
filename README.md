@@ -24,6 +24,13 @@ Designed to work with [Laravel JSON:API](https://laraveljsonapi.io/)
 composer install neondigital/openapi-spec-generator
 ```
 
+Publish the config file
+
+```
+php artisan vendor:publish --provider="LaravelJsonApi\OpenApiSpec\OpenApiServiceProvider"
+```
+
+Generate the Open API spec
 ```
 php artisan jsonapi:openapi:generate
 ```
