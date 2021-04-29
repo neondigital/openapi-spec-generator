@@ -22,9 +22,29 @@ class DatabaseSeeder extends Seeder
             'name' => 'News'
         ]);
 
-        Post::create([
+        $post1 = Post::create([
             'title' => 'My lovely blog post',
             'category_id' => $category->id,
+        ]);
+
+        $post2 = Post::create([
+            'title' => 'Another blog post',
+            'category_id' => $category->id,
+        ]);
+
+        Comment::create([
+           'post_id' => $post1->id,
+           'message' => 'This is a fair comment',
+        ]);
+
+        Comment::create([
+           'post_id' => $post1->id,
+           'message' => 'I just came for the comments',
+        ]);
+
+        Comment::create([
+           'post_id' => $post1->id,
+           'message' => 'Great blog post!',
         ]);
     }
 }

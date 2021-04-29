@@ -191,7 +191,7 @@ class OpenApiGenerator
                 return \Str::contains($route->getName(), $key);
             });
 
-            print_r($key . "\n");
+            //print_r($key . "\n");
 
             $route_methods = [];
 
@@ -567,7 +567,7 @@ class OpenApiGenerator
             // Add paths to OpenApi spec
             foreach ($route_methods as $key => $method) {
 
-    echo $key . "\n";
+    // echo $key . "\n";
 
                 //$key = "/" . $key;
 
@@ -592,6 +592,8 @@ class OpenApiGenerator
 
         // Save to storage
         \Storage::put('openapi.yaml', $yaml);
+
+        return $yaml;
     }
 
     private function getSwaggerSchema($server, $schema, string $schema_name, string $schema_name_plural, string $method,
