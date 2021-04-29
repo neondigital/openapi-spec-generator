@@ -2,6 +2,8 @@
 
 Designed to work with [Laravel JSON:API](https://laraveljsonapi.io/)
 
+!!! Disclaimer: this project is work in progress and likely contains many bugs, etc !!!
+
 ## TODO
 
 - [x] Command to generate to storage folder
