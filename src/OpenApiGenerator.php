@@ -166,7 +166,8 @@ class OpenApiGenerator
                             "schema" => ["type" => "integer"]
                         ]),
                     ]
-                ])
+                ]),
+                'x-tagGroups' => config('openapi.tag_groups'),
             ]);
 
             /** @var \LaravelJsonApi\Core\Server\Server $server */
@@ -440,7 +441,7 @@ class OpenApiGenerator
                                 "parameters" => $parameters,
                                 "responses" => $responses,
                                 "requestBody" => $requestBody,
-                                "tags" => [$schema_name_plural]
+                                "tags" => array_merge([ucfirst($schema_name_plural)], config('openapi.operations.' . $operationId . ".extra_tags", []))
                             ]);
 
                     } else {
@@ -452,7 +453,7 @@ class OpenApiGenerator
                                 "operationId" => $operationId,
                                 "parameters" => $parameters,
                                 "responses" => $responses,
-                                "tags" => array_merge([$schema_name_plural], config('openapi.operations.' . $operationId . ".tags", []))
+                                "tags" => array_merge([ucfirst($schema_name_plural)], config('openapi.operations.' . $operationId . ".extra_tags", []))
                         ]);
                     }
                     unset($parameters, $responses, $field_schemas);

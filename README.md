@@ -7,8 +7,9 @@ Designed to work with [Laravel JSON:API](https://laraveljsonapi.io/)
 ## TODO
 
 - [x] Command to generate to storage folder
-- [ ] Config to set which server(s) to generate, with extra info?
-- [ ] Add in tags & x-tagGroups (via config)
+- [ ] Config to set which server(s) to generate
+- [x] Add extra operation descriptons via config
+- [x] Add in tags & x-tagGroups (via config)
 - [ ] Consider `->readonly()` etc in routes
 - [ ] Remove links in payload data when saving resources
 - [ ] Tidy up the code!!

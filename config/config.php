@@ -15,13 +15,18 @@ return [
         'v1_posts_index' => [
             'summary' => 'Create a new Post',
             'description' => 'Some longer text to explain what is going on',
-            'tags' => ['Posts']
+            'extra_tags' => ['Posts']
         ],
     ],
 
     'tag_groups' => [
-        'CMS' => [
-            'Posts',
+        [
+            'name' => 'CMS Management',
+            'tags' => [
+                'Posts',
+                'Comments',
+                'Channels',
+            ]
         ],
     ]
 ];
