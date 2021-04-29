@@ -11,7 +11,7 @@ return [
         'version' => '1.0.0',
     ],
 
-    'paths' => [
+    'operations' => [
         'v1.posts.store' => [
             'summary' => 'Create a new Post',
             'description' => 'Some longer text to explain what is going on',
