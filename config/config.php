@@ -5,17 +5,23 @@
  */
 return [
 
-    'operations' => [
-        'getcandy.channels.store' => [
-            'summary' => 'Create a new Channel',
+    'info' => [
+        'title' => 'Test API',
+        'description' => 'My awesome API',
+        'version' => '1.0.0',
+    ],
+
+    'paths' => [
+        'v1.posts.store' => [
+            'summary' => 'Create a new Post',
             'description' => 'Some longer text to explain what is going on',
-            'tags' => ['Channels']
+            'tags' => ['Posts']
         ],
     ],
 
     'tag_groups' => [
-        'Core' => [
-            'Channels',
+        'CMS' => [
+            'Posts',
         ],
     ]
 ];
