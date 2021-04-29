@@ -7,7 +7,7 @@ Designed to work with [Laravel JSON:API](https://laraveljsonapi.io/)
 ## TODO
 
 - [x] Command to generate to storage folder
-- [x] Get basic test running
+- [x] Get basic test suite running with GitHub Actions
 - [ ] Config to set which server(s) to generate
 - [x] Add extra operation descriptons via config
 - [x] Add in tags & x-tagGroups (via config)
@@ -20,6 +20,7 @@ Designed to work with [Laravel JSON:API](https://laraveljsonapi.io/)
 
 ## Usage
 
+Install package
 ```
 composer install neondigital/openapi-spec-generator
 ```
