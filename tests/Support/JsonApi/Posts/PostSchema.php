@@ -30,7 +30,7 @@ class PostSchema extends Schema
     {
         return [
             ID::make(),
-            Str::make('name')->sortable(),
+            Str::make('title')->sortable(),
             DateTime::make('createdAt')->sortable()->readOnly(),
             DateTime::make('updatedAt')->sortable()->readOnly(),
         ];

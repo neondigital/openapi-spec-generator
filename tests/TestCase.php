@@ -45,7 +45,7 @@ abstract class TestCase extends BaseTestCase
     }
 
     protected function getPackageAliases($app)
-    {      
+    {
         return [
             "OpenApiGenerator" => \LaravelJsonApi\OpenApiSpec\Facades\GeneratorFacade::class,
             "JsonApi" => \LaravelJsonApi\Core\Facades\JsonApi::class,

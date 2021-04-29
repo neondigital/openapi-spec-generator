@@ -15,7 +15,7 @@ return [
         'v1_posts_index' => [
             'summary' => 'Create a new Post',
             'description' => 'Some longer text to explain what is going on',
-            'extra_tags' => ['Posts']
+            'extra_tags' => ['Blog']
         ],
     ],
 
@@ -25,7 +25,6 @@ return [
             'tags' => [
                 'Posts',
                 'Comments',
-                'Channels',
             ]
         ],
     ]

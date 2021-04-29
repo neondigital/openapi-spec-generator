@@ -13,9 +13,23 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('category_id');
+            $table->string('title');
+            $table->timestamps();
+        });
+
+        Schema::create('comments', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('post_id');
+            $table->string('message');
             $table->timestamps();
         });
     }
@@ -27,6 +41,8 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('comments');
         Schema::dropIfExists('posts');
+        Schema::dropIfExists('categories');
     }
 }

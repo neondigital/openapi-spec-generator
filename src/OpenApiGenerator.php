@@ -191,7 +191,7 @@ class OpenApiGenerator
                 return \Str::contains($route->getName(), $key);
             });
 
-            //print_r($key . "\n");
+            print_r($key . "\n");
 
             $route_methods = [];
 
@@ -200,26 +200,28 @@ class OpenApiGenerator
             foreach ($routes as $route) {
 
 
-                // print_r($route->getController());
-                // echo "\n";
-                // echo "\n-----------\n";
-                // print_r($route->getName());
-                // echo "\n";
-                // print_r($route->getPrefix());
-                // echo "\n";
-                // print_r($route->uri());
-                // echo "\n";
-                // print_r($route->getActionName());
-                // echo "\n";
-                //print_r($route->methods()[0]);
-                
-                // print_r($route->parameterNames());
-                // echo "\n";
+//                 print_r($route->getController());
+//                 echo "\n";
+//                 echo "\n-----------\n";
+//                 print_r($route->getName());
+//                 echo "\n";
+//                 print_r($route->getPrefix());
+//                 echo "\n";
+//                 print_r($route->uri());
+//                 echo "\n";
+//                 print_r($route->getActionName());
+//                 echo "\n";
+//                 print_r($route->methods()[0]);
+//
+//                 print_r($route->parameterNames());
+//                 echo "\n";
 
                 $uri = $route->uri;
                 /** @var string $route_uri route uri without api/serverkey prefix */
                 $route_uri = str_replace("api/$key", '', $uri);
                 // $route_uri now looks like /users for example.
+
+                //echo "Route URI: " . $route_uri . "\n";
 
                 // $uri now e.g. api/v1/users/{user}/owns-machines
                 $uri = \Str::replaceFirst($route->getPrefix(), '', $uri);
@@ -410,7 +412,7 @@ class OpenApiGenerator
                         case "store":
                             $summary = "Create a new " . $schema_name;
                             break;
-                
+
                         case "update":
                             $summary = "Update the " . $schema_name . " resource";
                             break;
@@ -419,7 +421,7 @@ class OpenApiGenerator
                             $summary = "Delete the " . $schema_name . " resource";
                             break;
 
-                        default: 
+                        default:
                             $summary = ucfirst($action);
                             break;
                     }
@@ -433,7 +435,7 @@ class OpenApiGenerator
                     if (in_array($method, ['POST', 'PATCH'])) {
                         //echo $method . " - " . $route_uri . "\n";
                         $requestBody = ['$ref' => "#/components/requestBodies/" . $schema_name_plural . "_" . strtolower($method)];
-                        
+
                         $route_methods[$route_uri][strtolower($method)] = new Operation([
                                 "summary" => config('openapi.operations.' . $operationId . ".summary") ?? $summary,
                                 "description" => config('openapi.operations.' . $operationId . ".description") ?? "",
@@ -564,7 +566,12 @@ class OpenApiGenerator
 
             // Add paths to OpenApi spec
             foreach ($route_methods as $key => $method) {
-                $key = "/" . $key;
+
+    echo $key . "\n";
+
+                //$key = "/" . $key;
+
+
 
                 $openapi->paths["{$key}"] = new PathItem(array_merge([
                     "description" => $schema_name,

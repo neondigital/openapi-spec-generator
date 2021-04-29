@@ -7,17 +7,14 @@ use LaravelJsonApi\OpenApiSpec\Tests\Support\Database\Seeders\DatabaseSeeder;
 use OpenApiGenerator;
 
 class ExampleTest extends TestCase
-{ 
+{
     use RefreshDatabase;
-    
+
     protected function setUp(): void
     {
         parent::setUp();
-        //$this->seed(DatabaseSeeder::class);
 
-        $test = new DatabaseSeeder;
-
-        $this->artisan('db:seed', ['--class' => DatabaseSeeder::class]);
+        $this->seed(DatabaseSeeder::class);
     }
 
     /** @test */
