@@ -42,7 +42,7 @@ A quick way to preview your documentation is to use [Speccy](https://speccy.io/)
 Ensure you have installed Speccy globally and then you can use the following command.
 
 ```
-speccy serve storage/app/openapi.yaml
+speccy serve storage/app/v1_openapi.yaml
 ```
 
 
