@@ -7,6 +7,7 @@ Designed to work with [Laravel JSON:API](https://laraveljsonapi.io/)
 ## TODO
 
 - [x] Command to generate to storage folder
+- [x] Get basic test running
 - [ ] Config to set which server(s) to generate
 - [x] Add extra operation descriptons via config
 - [x] Add in tags & x-tagGroups (via config)
