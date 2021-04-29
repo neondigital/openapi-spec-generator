@@ -21,7 +21,7 @@ class GenerateTest extends TestCase
 
     public function test_spec_is_yaml()
     {
-        $openapiYaml = OpenApiGenerator::generate();
+        $openapiYaml = OpenApiGenerator::generate('v1');
 
         $spec = Yaml::parse($openapiYaml);
 
@@ -30,9 +30,9 @@ class GenerateTest extends TestCase
 
     public function test_spec_file_generated()
     {
-        OpenApiGenerator::generate();
+        OpenApiGenerator::generate('v1');
 
-        $openapiYaml = \Storage::get('openapi.yaml');
+        $openapiYaml = \Storage::get('v1_openapi.yaml');
 
         $spec = Yaml::parse($openapiYaml);
 

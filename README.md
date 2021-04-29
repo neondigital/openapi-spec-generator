@@ -33,7 +33,7 @@ php artisan vendor:publish --provider="LaravelJsonApi\OpenApiSpec\OpenApiService
 
 Generate the Open API spec
 ```
-php artisan jsonapi:openapi:generate
+php artisan jsonapi:openapi:generate v1
 ```
 
 ## Generating Documentation

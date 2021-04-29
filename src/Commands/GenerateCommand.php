@@ -12,7 +12,7 @@ class GenerateCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'jsonapi:openapi:generate';
+    protected $signature = 'jsonapi:openapi:generate {serverKey}';
 
     /**
      * The console command description.
@@ -38,14 +38,16 @@ class GenerateCommand extends Command
      */
     public function handle()
     {
+        $serverKey = $this->argument('serverKey');
+        
         $this->info('Generating Open API spec...');
 
-        OpenApiGenerator::generate();
+        OpenApiGenerator::generate($serverKey);
 
-        $this->line('Complete! /storage/app/openapi.yaml');
+        $this->line('Complete! /storage/app/'.$serverKey.'_openapi.yaml');
         $this->newLine();
         $this->line('Run the following to see your API docs');
-        $this->info('speccy serve storage/app/openapi.yaml');
+        $this->info('speccy serve storage/app/'.$serverKey.'_openapi.yaml');
         $this->newLine();
 
         return 0;
